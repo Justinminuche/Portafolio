@@ -6,6 +6,7 @@
     <title>Portafolio Justin</title>
 
     <style>
+
         body{
             font-family: Arial;
             background:#111;
@@ -20,6 +21,16 @@
             border-radius:15px;
             max-width:700px;
             margin:auto;
+            animation: aparecer 1s ease;
+        }
+
+        .perfil{
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            object-fit:cover;
+            border:4px solid #00bfff;
+            margin-bottom:20px;
         }
 
         h1{
@@ -33,40 +44,96 @@
             border-radius:10px;
         }
 
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 25px;
+            background:#00bfff;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            transform:scale(1.05);
+        }
+
         a{
             color:#00bfff;
         }
+
+        @keyframes aparecer{
+            from{
+                opacity:0;
+                transform:translateY(30px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-<div class="card">
+    <div class="card">
 
-    <h1>Justin - Software Engineering Student</h1>
+        <img src="foto.jpg" class="perfil">
 
-    <p>
-        Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python.
-    </p>
+        <h1>Justin - Software Engineering Student</h1>
 
-    <h2>Proyectos</h2>
+        <p>
+            Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python.
+        </p>
 
-    <div class="project">
-        <h3>Sistema CRUD Django</h3>
-        <p>Sistema de inventario desarrollado con Django.</p>
+        <h2>Tecnologías</h2>
+
+        <div class="project">
+            <p>Python</p>
+            <p>Django</p>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>JavaScript</p>
+            <p>GitHub</p>
+        </div>
+
+        <h2>Proyectos</h2>
+
+        <div class="project">
+            <h3>Sistema de Inventario</h3>
+            <p>
+                CRUD desarrollado con Django y SQLite.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Portafolio Web</h3>
+            <p>
+                Página personal desarrollada con HTML y CSS.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>API REST</h3>
+            <p>
+                API creada con Django REST Framework.
+            </p>
+        </div>
+
+        <a class="btn" href="https://github.com/Justinminuche" target="_blank">
+            Mi GitHub
+        </a>
+
+        <h2>Contacto</h2>
+
+        <p>Email: tucorreo@gmail.com</p>
+        <p>GitHub: Justinminuche</p>
+
     </div>
-
-    <div class="project">
-        <h3>API REST</h3>
-        <p>API desarrollada con Django REST Framework.</p>
-    </div>
-
-    <h2>GitHub</h2>
-
-    <a href="https://github.com/TUUSUARIO">
-        Ver mi GitHub
-    </a>
-
-</div>
 
 </body>
 </html>
