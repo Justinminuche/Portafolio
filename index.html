@@ -3,137 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Justin</title>
-
+    <title>Justin — Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body{
-            font-family: Arial;
-            background:#111;
-            color:white;
-            text-align:center;
-            padding:40px;
+        :root {
+            --accent: #00c8ff;
+            --accent2: #0070f3;
+            --bg: #09090f;
+            --surface: #111118;
+            --surface2: #18181f;
+            --border: rgba(255,255,255,0.07);
+            --text: #f0f0f8;
+            --muted: #888899;
         }
 
-        .card{
-            background:#222;
-            padding:30px;
-            border-radius:15px;
-            max-width:700px;
-            margin:auto;
-            animation: aparecer 1s ease;
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .perfil{
-            width:150px;
-            height:150px;
-            border-radius:50%;
-            object-fit:cover;
-            border:4px solid #00bfff;
-            margin-bottom:20px;
+        /* --- GRID BG --- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,200,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,200,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        h1{
-            color:#00bfff;
+        /* --- GLOW ORBS --- */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 500px; height: 500px; background: rgba(0,112,243,0.12); top: -150px; right: -100px; }
+        .orb-2 { width: 400px; height: 400px; background: rgba(0,200,255,0.08); bottom: 100px; left: -150px; }
+
+        /* --- LAYOUT --- */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
         }
 
-        .project{
-            background:#333;
-            margin-top:20px;
-            padding:15px;
-            border-radius:10px;
+        /* --- HEADER --- */
+        .header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 36px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .btn{
-            display:inline-block;
-            margin-top:20px;
-            padding:12px 25px;
-            background:#00bfff;
-            color:white;
-            text-decoration:none;
-            border-radius:10px;
-            transition:0.3s;
+        .avatar-wrap {
+            position: relative;
         }
 
-        .btn:hover{
-            transform:scale(1.05);
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            background: var(--surface2);
         }
 
-        a{
-            color:#00bfff;
+        .avatar-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
         }
 
-        @keyframes aparecer{
-            from{
-                opacity:0;
-                transform:translateY(30px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
+        .status-dot {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            width: 14px;
+            height: 14px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid var(--bg);
         }
 
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: rgba(34,197,94,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(1.6); }
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(0,200,255,0.08);
+            border: 1px solid rgba(0,200,255,0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+            width: fit-content;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.1;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .bio {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--accent);
+            color: #000;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: transparent;
+            color: var(--muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-ghost:hover {
+            color: var(--text);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTION --- */
+        .section { margin-bottom: 72px; }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .section-label h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* --- TECH GRID --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .tech-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.25s;
+            cursor: default;
+        }
+
+        .tech-item:hover {
+            border-color: rgba(0,200,255,0.3);
+            background: var(--surface2);
+            transform: translateY(-3px);
+        }
+
+        .tech-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .tech-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .tech-item:hover .tech-name { color: var(--accent); }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,200,255,0.04) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0,200,255,0.25);
+            transform: translateY(-4px);
+        }
+
+        .project-card:hover::before { opacity: 1; }
+
+        .project-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            margin-bottom: 14px;
+            opacity: 0.7;
+        }
+
+        .project-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .ptag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 5px;
+            background: rgba(0,200,255,0.07);
+            color: rgba(0,200,255,0.8);
+            border: 1px solid rgba(0,200,255,0.12);
+            font-family: 'DM Mono', monospace;
+        }
+
+        .project-arrow {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: var(--surface2);
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .project-card:hover .project-arrow { opacity: 1; }
+
+        /* --- CONTACT --- */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            color: var(--text);
+            border-color: rgba(0,200,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon { font-size: 16px; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(136,136,153,0.5);
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header         { animation-delay: 0.05s; }
+        .section:nth-child(1) .fade-up { animation-delay: 0.15s; }
+        .section:nth-child(2) .fade-up { animation-delay: 0.25s; }
+        .section:nth-child(3) .fade-up { animation-delay: 0.35s; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .header { grid-template-columns: 1fr; text-align: center; }
+            .header-links { justify-content: center; }
+            .bio { margin: 0 auto; }
+            .tag { margin: 0 auto; }
+            .avatar-wrap { margin: 0 auto; }
+        }
     </style>
 </head>
-
 <body>
 
-    <div class="card">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-        <img src="foto.jpg" class="perfil">
+<div class="container">
 
-        <h1>Justin - Software Engineering Student</h1>
-
-        <p>
-            Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python.
-        </p>
-
-        <h2>Tecnologías</h2>
-
-        <div class="project">
-            <p>Python</p>
-            <p>Django</p>
-            <p>HTML</p>
-            <p>CSS</p>
-            <p>JavaScript</p>
-            <p>GitHub</p>
+    <!-- HEADER -->
+    <header class="header fade-up">
+        <div class="avatar-wrap">
+            <img src="foto.jpg" class="avatar" alt="Justin" onerror="this.style.background='linear-gradient(135deg,#0070f3,#00c8ff)';this.style.display='block'">
+            <div class="avatar-ring"></div>
+            <div class="status-dot" title="Disponible para proyectos"></div>
         </div>
 
-        <h2>Proyectos</h2>
-
-        <div class="project">
-            <h3>Sistema de Inventario</h3>
-            <p>
-                CRUD desarrollado con Django y SQLite.
-            </p>
+        <div class="header-info">
+            <span class="tag">✦ Disponible para proyectos</span>
+            <h1>Justin,<br><em>Software Engineer</em></h1>
+            <p class="bio">Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python. Construyo soluciones con código limpio y diseño funcional.</p>
+            <div class="header-links">
+                <a class="btn-primary" href="https://github.com/Justinminuche" target="_blank">
+                    ↗ GitHub
+                </a>
+                <a class="btn-ghost" href="mailto:tucorreo@gmail.com">
+                    ✉ tucorreo@gmail.com
+                </a>
+            </div>
         </div>
+    </header>
 
-        <div class="project">
-            <h3>Portafolio Web</h3>
-            <p>
-                Página personal desarrollada con HTML y CSS.
-            </p>
+    <!-- TECNOLOGÍAS -->
+    <section class="section">
+        <div class="section-label fade-up">
+            <h2>Tecnologías</h2>
         </div>
-
-        <div class="project">
-            <h3>API REST</h3>
-            <p>
-                API creada con Django REST Framework.
-            </p>
+        <div class="tech-grid fade-up">
+            <div class="tech-item"><span class="tech-icon">🐍</span><span class="tech-name">Python</span></div>
+            <div class="tech-item"><span class="tech-icon">🎸</span><span class="tech-name">Django</span></div>
+            <div class="tech-item"><span class="tech-icon">🌐</span><span class="tech-name">HTML</span></div>
+            <div class="tech-item"><span class="tech-icon">🎨</span><span class="tech-name">CSS</span></div>
+            <div class="tech-item"><span class="tech-icon">⚡</span><span class="tech-name">JavaScript</span></div>
+            <div class="tech-item"><span class="tech-icon">🐙</span><span class="tech-name">GitHub</span></div>
         </div>
+    </section>
 
-        <a class="btn" href="https://github.com/Justinminuche" target="_blank">
-            Mi GitHub
-        </a>
+    <!-- PROYECTOS -->
+    <section class="section">
+        <div class="section-label fade-up">
+            <h2>Proyectos</h2>
+        </div>
+        <div class="projects-grid fade-up">
 
-        <h2>Contacto</h2>
+            <div class="project-card">
+                <span class="project-arrow">↗</span>
+                <div class="project-num">01 / Proyecto</div>
+                <div class="project-title">Sistema de Inventario</div>
+                <p class="project-desc">CRUD completo desarrollado con Django y SQLite. Gestión de productos, categorías y reportes en tiempo real.</p>
+                <div class="project-tags">
+                    <span class="ptag">Django</span>
+                    <span class="ptag">SQLite</span>
+                    <span class="ptag">Python</span>
+                </div>
+            </div>
 
-        <p>Email: tucorreo@gmail.com</p>
-        <p>GitHub: Justinminuche</p>
+            <div class="project-card">
+                <span class="project-arrow">↗</span>
+                <div class="project-num">02 / Proyecto</div>
+                <div class="project-title">Portafolio Web</div>
+                <p class="project-desc">Página personal desarrollada con HTML y CSS. Diseño responsivo y animaciones CSS personalizadas.</p>
+                <div class="project-tags">
+                    <span class="ptag">HTML</span>
+                    <span class="ptag">CSS</span>
+                    <span class="ptag">JS</span>
+                </div>
+            </div>
 
-    </div>
+            <div class="project-card">
+                <span class="project-arrow">↗</span>
+                <div class="project-num">03 / Proyecto</div>
+                <div class="project-title">API REST</div>
+                <p class="project-desc">API construida con Django REST Framework. Endpoints documentados con autenticación por token.</p>
+                <div class="project-tags">
+                    <span class="ptag">DRF</span>
+                    <span class="ptag">Django</span>
+                    <span class="ptag">REST</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section">
+        <div class="section-label fade-up">
+            <h2>Contacto</h2>
+        </div>
+        <div class="contact-row fade-up">
+            <a class="contact-item" href="mailto:tucorreo@gmail.com">
+                <span class="contact-icon">✉</span> tucorreo@gmail.com
+            </a>
+            <a class="contact-item" href="https://github.com/Justinminuche" target="_blank">
+                <span class="contact-icon">🐙</span> github.com/Justinminuche
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Justin © 2025 — Construido con HTML & CSS</p>
+    </footer>
+
+</div>
 
 </body>
 </html>
