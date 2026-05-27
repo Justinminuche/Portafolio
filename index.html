@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin — Software Engineer</title>
+    <title>Justin — Ingeniero de Software</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -311,6 +311,41 @@
 
         .project-card:hover::before { opacity: 1; }
 
+        .card-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 7px;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .card-btn.gh,
+        .card-btn.demo {
+            background: rgba(0,200,255,0.08);
+            color: var(--accent);
+            border: 1px solid rgba(0,200,255,0.2);
+        }
+
+        .card-btn.gh:hover,
+        .card-btn.demo:hover {
+            background: rgba(0,200,255,0.15);
+            color: #fff;
+            border-color: rgba(0,200,255,0.4);
+            transform: translateY(-2px);
+        }
+
         .project-num {
             font-family: 'DM Mono', monospace;
             font-size: 11px;
@@ -366,7 +401,7 @@
             transition: opacity 0.2s;
         }
 
-        .project-card:hover .project-arrow { opacity: 1; }
+        .project-card:not(.featured):hover .project-arrow { opacity: 1; }
 
         /* --- CONTACT --- */
         .contact-row {
@@ -430,6 +465,7 @@
             .bio { margin: 0 auto; }
             .tag { margin: 0 auto; }
             .avatar-wrap { margin: 0 auto; }
+            .card-links { flex-direction: column; }
         }
     </style>
 </head>
@@ -450,7 +486,7 @@
 
         <div class="header-info">
             <span class="tag">✦ Disponible para proyectos</span>
-            <h1>Justin,<br><em>Software Engineer</em></h1>
+            <h1>Justin,<br><em>Ingeniero de Software</em></h1>
             <p class="bio">Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python. Construyo soluciones con código limpio y diseño funcional.</p>
             <div class="header-links">
                 <a class="btn-primary" href="https://github.com/Justinminuche" target="_blank">
@@ -485,18 +521,38 @@
         </div>
         <div class="projects-grid fade-up">
 
-            <a class="project-card" href="https://game-memory-20my22.web.app/" target="_blank">
-                <span class="project-arrow">↗</span>
+            <!-- Memory Game -->
+            <div class="project-card">
                 <div class="project-num">01 / Proyecto</div>
                 <div class="project-title">Memory Game</div>
                 <p class="project-desc">Juego de memoria multijugador. Encuentra todos los pares de cartas antes que tu oponente. Desplegado en Firebase.</p>
-                <div class="project-tags">
+                <div class="project-tags" style="margin-bottom:18px;">
                     <span class="ptag">JavaScript</span>
                     <span class="ptag">HTML</span>
                     <span class="ptag">CSS</span>
                     <span class="ptag">Firebase</span>
                 </div>
-            </a>
+                <div class="card-links">
+                    <a class="card-btn demo" href="https://game-memory-20my22.web.app/" target="_blank">▶️ Probar</a>
+                </div>
+            </div>
+
+            <!-- Sistema de Compra y Venta -->
+            <div class="project-card">
+                <div class="project-num">02 / Proyecto</div>
+                <div class="project-title">Sistema de Compra y Venta</div>
+                <p class="project-desc">Aplicación web completa para la gestión de compras y ventas desarrollada con Django. Incluye administración de productos, clientes, proveedores y registro de transacciones.</p>
+                <div class="project-tags" style="margin-bottom:18px;">
+                    <span class="ptag">Python</span>
+                    <span class="ptag">Django</span>
+                    <span class="ptag">HTML</span>
+                    <span class="ptag">CSS</span>
+                    <span class="ptag">SQLite</span>
+                </div>
+                <div class="card-links">
+                    <a class="card-btn gh" href="https://github.com/Justinminuche/Sistema-de-compra-y-venta" target="_blank">🐙 Ver en GitHub</a>
+                </div>
+            </div>
 
         </div>
     </section>
