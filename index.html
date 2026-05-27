@@ -1,604 +1,439 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin — Ingeniero de Software</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Justin | Portafolio</title>
 
-    <style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
 
-        :root{
-            --accent:#00c8ff;
-            --accent2:#0070f3;
-            --bg:#09090f;
-            --surface:#111118;
-            --surface2:#18181f;
-            --border:rgba(255,255,255,0.07);
-            --text:#f0f0f8;
-            --muted:#888899;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        body{
-            font-family:'Outfit',sans-serif;
-            background:var(--bg);
-            color:var(--text);
-            min-height:100vh;
-            overflow-x:hidden;
-        }
+body{
+    font-family:'Outfit',sans-serif;
+    background:#0b0b12;
+    color:white;
+    overflow-x:hidden;
+}
 
-        body::before{
-            content:'';
-            position:fixed;
-            inset:0;
-            background-image:
-                linear-gradient(rgba(0,200,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,200,255,0.03) 1px, transparent 1px);
-            background-size:60px 60px;
-            z-index:0;
-        }
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:50px 0;
+}
 
-        .orb{
-            position:fixed;
-            border-radius:50%;
-            filter:blur(100px);
-            z-index:0;
-        }
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-bottom:80px;
+}
 
-        .orb-1{
-            width:500px;
-            height:500px;
-            background:rgba(0,112,243,0.12);
-            top:-150px;
-            right:-100px;
-        }
+.profile{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
 
-        .orb-2{
-            width:400px;
-            height:400px;
-            background:rgba(0,200,255,0.08);
-            bottom:100px;
-            left:-150px;
-        }
+.profile img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #00c8ff;
+}
 
-        .container{
-            position:relative;
-            z-index:1;
-            max-width:900px;
-            margin:auto;
-            padding:60px 24px 100px;
-        }
+.info h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
 
-        .header{
-            display:grid;
-            grid-template-columns:auto 1fr;
-            gap:36px;
-            align-items:center;
-            margin-bottom:80px;
-            padding-bottom:60px;
-            border-bottom:1px solid var(--border);
-        }
+.info span{
+    color:#00c8ff;
+}
 
-        .avatar-wrap{
-            position:relative;
-        }
+.info p{
+    color:#b4b4c5;
+    max-width:500px;
+    line-height:1.7;
+}
 
-        .avatar{
-            width:120px;
-            height:120px;
-            border-radius:50%;
-            object-fit:cover;
-        }
+.buttons{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-        .avatar-ring{
-            position:absolute;
-            inset:-4px;
-            border-radius:50%;
-            border:2px solid var(--accent);
-        }
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    cursor:pointer;
+}
 
-        .status-dot{
-            position:absolute;
-            bottom:6px;
-            right:6px;
-            width:14px;
-            height:14px;
-            background:#22c55e;
-            border-radius:50%;
-            border:2px solid var(--bg);
-        }
+.btn-primary{
+    background:#00c8ff;
+    color:black;
+}
 
-        .tag{
-            display:inline-block;
-            padding:6px 14px;
-            border-radius:100px;
-            background:rgba(0,200,255,0.08);
-            border:1px solid rgba(0,200,255,0.2);
-            color:var(--accent);
-            font-size:11px;
-            letter-spacing:.12em;
-            text-transform:uppercase;
-            margin-bottom:12px;
-        }
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:white;
+}
 
-        h1{
-            font-family:'DM Serif Display',serif;
-            font-size:55px;
-            line-height:1.1;
-            margin-bottom:14px;
-        }
+.btn-outline{
+    border:1px solid #00c8ff;
+    color:#00c8ff;
+}
 
-        h1 em{
-            color:var(--accent);
-            font-style:italic;
-        }
+.btn-outline:hover{
+    background:#00c8ff;
+    color:black;
+    transform:translateY(-4px);
+}
 
-        .bio{
-            color:var(--muted);
-            line-height:1.7;
-            max-width:520px;
-            margin-bottom:18px;
-        }
+.section-title{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:#00c8ff;
+    margin-bottom:25px;
+}
 
-        .header-links{
-            display:flex;
-            gap:12px;
-            flex-wrap:wrap;
-        }
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:15px;
+    margin-bottom:80px;
+}
 
-        .btn-primary,
-        .btn-ghost{
-            padding:12px 24px;
-            border-radius:8px;
-            text-decoration:none;
-            font-size:14px;
-            transition:.25s;
-            font-weight:600;
-        }
+.tech{
+    background:#12121b;
+    border:1px solid rgba(255,255,255,0.06);
+    padding:25px;
+    border-radius:14px;
+    text-align:center;
+    transition:0.3s;
+}
 
-        .btn-primary{
-            background:var(--accent);
-            color:#000;
-        }
+.tech:hover{
+    transform:translateY(-6px);
+    border-color:#00c8ff;
+}
 
-        .btn-primary:hover{
-            background:white;
-            transform:translateY(-3px);
-        }
+.tech h3{
+    margin-top:10px;
+    font-size:15px;
+}
 
-        .btn-ghost{
-            border:1px solid var(--border);
-            color:var(--muted);
-        }
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-bottom:80px;
+}
 
-        .btn-ghost:hover{
-            border-color:var(--accent);
-            color:white;
-            transform:translateY(-3px);
-        }
+.card{
+    background:#12121b;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:18px;
+    padding:28px;
+    transition:0.3s;
+}
 
-        .section{
-            margin-bottom:70px;
-        }
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#00c8ff;
+}
 
-        .section-label{
-            display:flex;
-            align-items:center;
-            gap:14px;
-            margin-bottom:28px;
-        }
+.card h2{
+    margin-bottom:12px;
+}
 
-        .section-label h2{
-            font-size:11px;
-            letter-spacing:.14em;
-            text-transform:uppercase;
-            color:var(--muted);
-        }
+.card p{
+    color:#b4b4c5;
+    line-height:1.7;
+    margin-bottom:20px;
+}
 
-        .section-label::after{
-            content:'';
-            flex:1;
-            height:1px;
-            background:var(--border);
-        }
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
 
-        .tech-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
-            gap:12px;
-        }
+.tag{
+    background:rgba(0,200,255,0.12);
+    color:#00c8ff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:12px;
+}
 
-        .tech-item{
-            background:var(--surface);
-            border:1px solid var(--border);
-            border-radius:12px;
-            padding:18px;
-            text-align:center;
-            transition:.25s;
-        }
+.card-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
 
-        .tech-item:hover{
-            transform:translateY(-4px);
-            border-color:rgba(0,200,255,0.3);
-        }
+.card-btn{
+    display:inline-block;
+    padding:11px 18px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:0.3s;
+    cursor:pointer;
+}
 
-        .tech-icon{
-            font-size:30px;
-            margin-bottom:8px;
-        }
+.demo-btn{
+    background:#00c8ff;
+    color:black;
+}
 
-        .tech-name{
-            color:var(--muted);
-            font-size:13px;
-        }
+.demo-btn:hover{
+    background:white;
+    transform:translateY(-3px);
+}
 
-        .projects-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-            gap:18px;
-        }
+.github-btn{
+    border:1px solid #00c8ff;
+    color:#00c8ff;
+}
 
-        .project-card{
-            background:var(--surface);
-            border:1px solid var(--border);
-            border-radius:16px;
-            padding:24px;
-            transition:.3s;
-        }
+.github-btn:hover{
+    background:#00c8ff;
+    color:black;
+    transform:translateY(-3px);
+}
 
-        .project-card:hover{
-            transform:translateY(-6px);
-            border-color:rgba(0,200,255,0.3);
-        }
+.contact{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
 
-        .project-num{
-            font-size:11px;
-            color:var(--accent);
-            margin-bottom:12px;
-        }
+.contact a{
+    text-decoration:none;
+    color:#b4b4c5;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:14px 20px;
+    border-radius:10px;
+    transition:0.3s;
+}
 
-        .project-title{
-            font-size:20px;
-            margin-bottom:10px;
-            font-weight:600;
-        }
+.contact a:hover{
+    border-color:#00c8ff;
+    color:white;
+    transform:translateY(-4px);
+}
 
-        .project-desc{
-            color:var(--muted);
-            line-height:1.6;
-            font-size:14px;
-            margin-bottom:18px;
-        }
+footer{
+    margin-top:70px;
+    text-align:center;
+    color:#666;
+    font-size:14px;
+}
 
-        .project-tags{
-            display:flex;
-            gap:8px;
-            flex-wrap:wrap;
-            margin-bottom:18px;
-        }
+@media(max-width:768px){
 
-        .ptag{
-            padding:5px 10px;
-            border-radius:6px;
-            background:rgba(0,200,255,0.08);
-            color:var(--accent);
-            font-size:11px;
-        }
+    .info h1{
+        font-size:40px;
+    }
 
-        .card-links{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-        }
+}
 
-        .card-btn{
-            text-decoration:none;
-            padding:10px 16px;
-            border-radius:8px;
-            font-size:13px;
-            font-weight:600;
-            transition:.25s;
-        }
-
-        .card-btn.demo,
-        .card-btn.gh{
-            background:rgba(0,200,255,0.08);
-            color:var(--accent);
-            border:1px solid rgba(0,200,255,0.2);
-        }
-
-        .card-btn:hover{
-            background:rgba(0,200,255,0.18);
-            color:white;
-            transform:translateY(-3px) scale(1.03);
-        }
-
-        .contact-row{
-            display:flex;
-            flex-wrap:wrap;
-            gap:14px;
-        }
-
-        .contact-item{
-            padding:14px 20px;
-            background:var(--surface);
-            border:1px solid var(--border);
-            border-radius:10px;
-            text-decoration:none;
-            color:var(--muted);
-            transition:.25s;
-        }
-
-        .contact-item:hover{
-            border-color:rgba(0,200,255,0.3);
-            color:white;
-            transform:translateY(-3px);
-        }
-
-        footer{
-            text-align:center;
-            padding-top:40px;
-            border-top:1px solid var(--border);
-            color:rgba(255,255,255,0.4);
-            font-size:12px;
-        }
-
-        @media(max-width:600px){
-
-            .header{
-                grid-template-columns:1fr;
-                text-align:center;
-            }
-
-            .avatar-wrap{
-                margin:auto;
-            }
-
-            .header-links{
-                justify-content:center;
-            }
-
-            h1{
-                font-size:42px;
-            }
-
-        }
-
-    </style>
-
+</style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
 <div class="container">
 
-    <!-- HEADER -->
+<header>
 
-    <header class="header">
+<div class="profile">
 
-        <div class="avatar-wrap">
-            <img src="foto.jpg" class="avatar">
-            <div class="avatar-ring"></div>
-            <div class="status-dot"></div>
-        </div>
+<img src="foto.jpg" alt="Justin">
 
-        <div>
+<div class="info">
 
-            <span class="tag">Disponible para proyectos</span>
+<h1>Justin <span>Minuche</span></h1>
 
-            <h1>
-                Justin,<br>
-                <em>Ingeniero de Software</em>
-            </h1>
+<p>
+Estudiante de Ingeniería de Software apasionado por el desarrollo web,
+Python y la creación de aplicaciones modernas.
+</p>
 
-            <p class="bio">
-                Estudiante de Ingeniería de Software apasionado por el desarrollo web y Python.
-                Construyo soluciones modernas con diseño atractivo y código limpio.
-            </p>
+<div class="buttons">
 
-            <div class="header-links">
+<a href="https://github.com/Justinminuche"
+target="_blank"
+class="btn btn-primary">
 
-                <a class="btn-primary"
-                   href="https://github.com/Justinminuche"
-                   target="_blank">
+GitHub
 
-                    GitHub
+</a>
 
-                </a>
+<a href="mailto:jminucheg@unemi.edu.ec"
+class="btn btn-outline">
 
-                <a class="btn-ghost"
-                   href="mailto:jminucheg@unemi.edu.ec">
+Contacto
 
-                    Contacto
+</a>
 
-                </a>
+</div>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </header>
+</header>
 
-    <!-- TECNOLOGIAS -->
+<h2 class="section-title">Tecnologías</h2>
 
-    <section class="section">
+<div class="tech-grid">
 
-        <div class="section-label">
-            <h2>Tecnologías</h2>
-        </div>
+<div class="tech">
+<h3>🐍 Python</h3>
+</div>
 
-        <div class="tech-grid">
+<div class="tech">
+<h3>🎸 Django</h3>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">🐍</div>
-                <div class="tech-name">Python</div>
-            </div>
+<div class="tech">
+<h3>🌐 HTML</h3>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">🎸</div>
-                <div class="tech-name">Django</div>
-            </div>
+<div class="tech">
+<h3>🎨 CSS</h3>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">🌐</div>
-                <div class="tech-name">HTML</div>
-            </div>
+<div class="tech">
+<h3>⚡ JavaScript</h3>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">🎨</div>
-                <div class="tech-name">CSS</div>
-            </div>
+<div class="tech">
+<h3>🐙 GitHub</h3>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">⚡</div>
-                <div class="tech-name">JavaScript</div>
-            </div>
+</div>
 
-            <div class="tech-item">
-                <div class="tech-icon">🐙</div>
-                <div class="tech-name">GitHub</div>
-            </div>
+<h2 class="section-title">Proyectos</h2>
 
-        </div>
+<div class="projects">
 
-    </section>
+<!-- PROYECTO 1 -->
 
-    <!-- PROYECTOS -->
+<div class="card">
 
-    <section class="section">
+<h2>🎮 Memory Game</h2>
 
-        <div class="section-label">
-            <h2>Proyectos</h2>
-        </div>
+<p>
+Juego de memoria multijugador desarrollado con JavaScript y Firebase.
+Encuentra todos los pares antes que tu oponente.
+</p>
 
-        <div class="projects-grid">
+<div class="tags">
+<span class="tag">JavaScript</span>
+<span class="tag">Firebase</span>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+</div>
 
-            <!-- MEMORY GAME -->
+<div class="card-buttons">
 
-            <div class="project-card">
+<a href="https://game-memory-20my22.web.app/"
+target="_blank"
+class="card-btn demo-btn">
 
-                <div class="project-num">01 / Proyecto</div>
+▶️ Probar
 
-                <div class="project-title">
-                    Memory Game
-                </div>
+</a>
 
-                <p class="project-desc">
-                    Juego de memoria multijugador desarrollado con JavaScript y Firebase.
-                    Encuentra todos los pares antes que tu oponente.
-                </p>
+<a href="https://github.com/Justinminuche"
+target="_blank"
+class="card-btn github-btn">
 
-                <div class="project-tags">
-                    <span class="ptag">JavaScript</span>
-                    <span class="ptag">Firebase</span>
-                    <span class="ptag">HTML</span>
-                    <span class="ptag">CSS</span>
-                </div>
+🐙 GitHub
 
-                <div class="card-links">
+</a>
 
-                    <a class="card-btn demo"
-                       href="https://game-memory-20my22.web.app/"
-                       target="_blank">
+</div>
 
-                        ▶️ Probar
+</div>
 
-                    </a>
+<!-- PROYECTO 2 -->
 
-                    <a class="card-btn gh"
-                       href="https://github.com/Justinminuche"
-                       target="_blank">
+<div class="card">
 
-                        🐙 GitHub
+<h2>🛒 Sistema de Compra y Venta</h2>
 
-                    </a>
+<p>
+Sistema web desarrollado con Django para administrar productos,
+clientes, compras, ventas e inventario.
+</p>
 
-                </div>
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Django</span>
+<span class="tag">SQLite</span>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+</div>
 
-            </div>
+<div class="card-buttons">
 
-            <!-- DJANGO -->
+<a href="https://github.com/Justinminuche/Sistema-de-compra-y-venta"
+target="_blank"
+class="card-btn github-btn">
 
-            <div class="project-card">
+🐙 Ver Proyecto
 
-                <div class="project-num">02 / Proyecto</div>
+</a>
 
-                <div class="project-title">
-                    Sistema de Compra y Venta
-                </div>
+</div>
 
-                <p class="project-desc">
-                    Sistema web desarrollado con Django para administrar productos,
-                    clientes, compras, ventas e inventario.
-                </p>
+</div>
 
-                <div class="project-tags">
-                    <span class="ptag">Python</span>
-                    <span class="ptag">Django</span>
-                    <span class="ptag">SQLite</span>
-                    <span class="ptag">HTML</span>
-                    <span class="ptag">CSS</span>
-                </div>
+</div>
 
-                <div class="card-links">
+<h2 class="section-title">Contacto</h2>
 
-                    <a class="card-btn gh"
-                       href="https://github.com/Justinminuche/Sistema-de-compra-y-venta"
-                       target="_blank">
+<div class="contact">
 
-                        🐙 Ver en GitHub
+<a href="mailto:jminucheg@unemi.edu.ec">
+✉ jminucheg@unemi.edu.ec
+</a>
 
-                    </a>
+<a href="https://github.com/Justinminuche" target="_blank">
+🐙 github.com/Justinminuche
+</a>
 
-                </div>
+</div>
 
-            </div>
+<footer>
 
-        </div>
+Justin © 2026 | Portafolio Profesional
 
-    </section>
-
-    <!-- CONTACTO -->
-
-    <section class="section">
-
-        <div class="section-label">
-            <h2>Contacto</h2>
-        </div>
-
-        <div class="contact-row">
-
-            <a class="contact-item"
-               href="mailto:jminucheg@unemi.edu.ec">
-
-                ✉ jminucheg@unemi.edu.ec
-
-            </a>
-
-            <a class="contact-item"
-               href="https://github.com/Justinminuche"
-               target="_blank">
-
-                🐙 github.com/Justinminuche
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <footer>
-        Justin © 2026 — Portafolio Profesional
-    </footer>
+</footer>
 
 </div>
 
