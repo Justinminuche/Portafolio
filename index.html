@@ -10,269 +10,267 @@
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Outfit',sans-serif;
-    background:#0b0b12;
-    color:white;
-    overflow-x:hidden;
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #0b0b12;
+    color: white;
+    overflow-x: hidden;
 }
 
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding:50px 0;
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0;
 }
 
-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:30px;
-    margin-bottom:80px;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 80px;
 }
 
-.profile{
-    display:flex;
-    align-items:center;
-    gap:25px;
-    flex-wrap:wrap;
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-.profile img{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid #00c8ff;
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #00c8ff;
 }
 
 .info .profile-name {
-    display:block;
-    font-size:22px;
-    font-weight:400;
-    color:#b4b4c5;
-    letter-spacing:1px;
-    margin-bottom:5px;
+    display: block;
+    font-size: 22px;
+    font-weight: 400;
+    color: #b4b4c5;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
 }
 
-.info h1{
-    font-size:55px;
-    line-height:1.1;
-    margin-bottom:15px;
-    font-weight:600;
+.info h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
-.info h1 span{
-    color:#00c8ff;
+.info h1 span {
+    color: #00c8ff;
 }
 
-.info p{
-    color:#b4b4c5;
-    max-width:550px;
-    line-height:1.7;
+.info p {
+    color: #b4b4c5;
+    max-width: 550px;
+    line-height: 1.7;
 }
 
-.buttons{
-    margin-top:25px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.btn{
-    display:inline-block;
-    padding:12px 22px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-    cursor:pointer;
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.btn-primary{
-    background:#00c8ff;
-    color:black;
+.btn-primary {
+    background: #00c8ff;
+    color: black;
 }
 
-.btn-primary:hover{
-    transform:translateY(-4px);
-    background:white;
+.btn-primary:hover {
+    transform: translateY(-4px);
+    background: white;
 }
 
-.btn-outline{
-    border:1px solid #00c8ff;
-    color:#00c8ff;
+.btn-outline {
+    border: 1px solid #00c8ff;
+    color: #00c8ff;
 }
 
-.btn-outline:hover{
-    background:#00c8ff;
-    color:black;
-    transform:translateY(-4px);
+.btn-outline:hover {
+    background: #00c8ff;
+    color: black;
+    transform: translateY(-4px);
 }
 
-.section-title{
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:3px;
-    color:#00c8ff;
-    margin-bottom:25px;
+.section-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #00c8ff;
+    margin-bottom: 25px;
 }
 
-.tech-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-    gap:15px;
-    margin-bottom:80px;
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    margin-bottom: 80px;
 }
 
-.tech{
-    background:#12121b;
-    border:1px solid rgba(255,255,255,0.06);
-    padding:25px;
-    border-radius:14px;
-    text-align:center;
-    transition:0.3s;
+.tech {
+    background: #12121b;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    transition: 0.3s;
 }
 
-.tech:hover{
-    transform:translateY(-6px);
-    border-color:#00c8ff;
+.tech:hover {
+    transform: translateY(-6px);
+    border-color: #00c8ff;
 }
 
-.tech h3{
-    margin-top:10px;
-    font-size:15px;
+.tech h3 {
+    margin-top: 10px;
+    font-size: 15px;
 }
 
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
-    margin-bottom:80px;
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 80px;
 }
 
-.card{
-    background:#12121b;
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:18px;
-    padding:28px;
-    transition:0.3s;
+.card {
+    background: #12121b;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 28px;
+    transition: 0.3s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#00c8ff;
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #00c8ff;
 }
 
-.card h2{
-    margin-bottom:12px;
+.card h2 {
+    margin-bottom: 12px;
 }
 
-.card p{
-    color:#b4b4c5;
-    line-height:1.7;
-    margin-bottom:20px;
+.card p {
+    color: #b4b4c5;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:25px;
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
-.tag{
-    background:rgba(0,200,255,0.12);
-    color:#00c8ff;
-    padding:6px 12px;
-    border-radius:8px;
-    font-size:12px;
+.tag {
+    background: rgba(0,200,255,0.12);
+    color: #00c8ff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
 }
 
-.card-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+.card-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.card-btn{
-    display:inline-block;
-    padding:11px 18px;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    transition:0.3s;
-    cursor:pointer;
+.card-btn {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.demo-btn{
-    background:#00c8ff;
-    color:black;
+.demo-btn {
+    background: #00c8ff;
+    color: black;
 }
 
-.demo-btn:hover{
-    background:white;
-    transform:translateY(-3px);
+.demo-btn:hover {
+    background: white;
+    transform: translateY(-3px);
 }
 
-.github-btn{
-    border:1px solid #00c8ff;
-    color:#00c8ff;
+.github-btn {
+    border: 1px solid #00c8ff;
+    color: #00c8ff;
 }
 
-.github-btn:hover{
-    background:#00c8ff;
-    color:black;
-    transform:translateY(-3px);
+.github-btn:hover {
+    background: #00c8ff;
+    color: black;
+    transform: translateY(-3px);
 }
 
-.contact{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+.contact {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.contact a{
-    text-decoration:none;
-    color:#b4b4c5;
-    border:1px solid rgba(255,255,255,0.08);
-    padding:14px 20px;
-    border-radius:10px;
-    transition:0.3s;
+.contact a {
+    text-decoration: none;
+    color: #b4b4c5;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-.contact a:hover{
-    border-color:#00c8ff;
-    color:white;
-    transform:translateY(-4px);
+.contact a:hover {
+    border-color: #00c8ff;
+    color: white;
+    transform: translateY(-4px);
 }
 
-footer{
-    margin-top:70px;
-    text-align:center;
-    color:#666;
-    font-size:14px;
+footer {
+    margin-top: 70px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
 }
 
-@media(max-width:768px){
-
-    .info h1{
-        font-size:38px;
+@media(max-width: 768px) {
+    .info h1 {
+        font-size: 38px;
     }
     
     .info .profile-name {
-        font-size:18px;
+        font-size: 18px;
     }
-
 }
 
 </style>
@@ -298,20 +296,12 @@ Estudiante apasionado por el desarrollo web, Python y la creación de aplicacion
 
 <div class="buttons">
 
-<a href="https://github.com/Justinminuche"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-primary">
-
+<a href="https://github.com/Justinminuche" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
 GitHub
-
 </a>
 
-<a href="mailto:jminucheg@unemi.edu.ec"
-class="btn btn-outline">
-
+<a href="mailto:jminucheg@unemi.edu.ec" class="btn btn-outline">
 Contacto
-
 </a>
 
 </div>
@@ -357,54 +347,33 @@ Contacto
 <div class="projects">
 
 <div class="card">
-
 <h2>🎮 Memory Game</h2>
-
 <p>
 Juego de memoria multijugador desarrollado con JavaScript y Firebase.
 Encuentra todos los pares antes que tu oponente.
 </p>
-
 <div class="tags">
 <span class="tag">JavaScript</span>
 <span class="tag">Firebase</span>
 <span class="tag">HTML</span>
 <span class="tag">CSS</span>
 </div>
-
 <div class="card-buttons">
-
-<a href="https://game-memory-20my22.web.app/"
-target="_blank"
-rel="noopener noreferrer"
-class="card-btn demo-btn">
-
+<a href="https://game-memory-20my22.web.app/" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">
 ▶️ Probar
-
 </a>
-
-<a href="https://github.com/Justinminuche/Memory-Game.git"
-target="_blank"
-rel="noopener noreferrer"
-class="card-btn github-btn">
-
+<a href="https://github.com/Justinminuche/Memory-Game.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
 🐙 GitHub
-
 </a>
-
 </div>
-
 </div>
 
 <div class="card">
-
 <h2>🛒 Sistema de Compra y Venta</h2>
-
 <p>
 Sistema web desarrollado con Django para administrar productos,
 clientes, compras, ventas e inventario.
 </p>
-
 <div class="tags">
 <span class="tag">Python</span>
 <span class="tag">Django</span>
@@ -412,59 +381,49 @@ clientes, compras, ventas e inventario.
 <span class="tag">HTML</span>
 <span class="tag">CSS</span>
 </div>
-
 <div class="card-buttons">
-
-<a href="https://github.com/Justinminuche/Sistema-de-compra-y-venta"
-target="_blank"
-rel="noopener noreferrer"
-class="card-btn github-btn">
-
+<a href="https://github.com/Justinminuche/Sistema-de-compra-y-venta" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
 🐙 Ver Proyecto
-
 </a>
-
 </div>
-
 </div>
 
 <div class="card">
-
 <h2>📝 Quiz PSeInt</h2>
-
 <p>
 Aplicación web interactiva de preguntas y respuestas diseñada para evaluar y reforzar conocimientos sobre lógica de programación y PSeInt.
 </p>
-
 <div class="tags">
 <span class="tag">JavaScript</span>
 <span class="tag">HTML</span>
 <span class="tag">CSS</span>
 <span class="tag">Firebase</span>
 </div>
-
 <div class="card-buttons">
-
-<a href="https://quiz-pseint-minuche12.web.app"
-target="_blank"
-rel="noopener noreferrer"
-class="card-btn demo-btn">
-
+<a href="https://quiz-pseint-minuche12.web.app" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">
 ▶️ Probar
-
 </a>
-
-<a href="https://github.com/Justinminuche/Actividad_01.git"
-target="_blank"
-rel="noopener noreferrer"
-class="card-btn github-btn">
-
+<a href="https://github.com/Justinminuche/Actividad_01.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
 🐙 GitHub
-
 </a>
-
+</div>
 </div>
 
+<div class="card">
+<h2>⚽ Copa Mundial 2026</h2>
+<p>
+Juego multijugador en Roblox para pronosticar los resultados de toda la Copa del Mundo desde la fase de grupos. ¡Compite en la tabla de clasificación por el mayor puntaje y gana increíbles premios, incluyendo un iPhone 14 Pro para el primer lugar!
+</p>
+<div class="tags">
+<span class="tag">Roblox Studio</span>
+<span class="tag">Luau</span>
+<span class="tag">Game Design</span>
+</div>
+<div class="card-buttons">
+<span class="card-btn" style="border: 1px solid #666; color: #b4b4c5; cursor: default; user-select: none;">
+⏳ Próximamente...
+</span>
+</div>
 </div>
 
 </div>
