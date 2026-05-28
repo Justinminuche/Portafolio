@@ -3,276 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Justin | Portafolio</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Outfit', sans-serif; background: #0b0b12; color: white; overflow-x: hidden; }
+.container { width: 90%; max-width: 1100px; margin: auto; padding: 50px 0; }
+header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 80px; }
+.profile { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+.profile img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #00c8ff; }
+.info .profile-name { display: block; font-size: 22px; font-weight: 400; color: #b4b4c5; letter-spacing: 1px; margin-bottom: 5px; }
+.info h1 { font-size: 55px; line-height: 1.1; margin-bottom: 15px; font-weight: 600; }
+.info h1 span { color: #00c8ff; }
+.info p { color: #b4b4c5; max-width: 550px; line-height: 1.7; }
+.buttons { margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; }
+.btn-primary { background: #00c8ff; color: black; }
+.btn-primary:hover { transform: translateY(-4px); background: white; }
+.btn-outline { border: 1px solid #00c8ff; color: #00c8ff; }
+.btn-outline:hover { background: #00c8ff; color: black; transform: translateY(-4px); }
+.section-title { font-size: 14px; text-transform: uppercase; letter-spacing: 3px; color: #00c8ff; margin-bottom: 25px; }
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 80px; }
+.tech { background: #12121b; border: 1px solid rgba(255,255,255,0.06); padding: 25px; border-radius: 14px; text-align: center; transition: 0.3s; }
+.tech:hover { transform: translateY(-6px); border-color: #00c8ff; }
+.tech h3 { margin-top: 10px; font-size: 15px; }
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 80px; }
+.card { background: #12121b; border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; padding: 28px; transition: 0.3s; }
+.card:hover { transform: translateY(-8px); border-color: #00c8ff; }
+.card h2 { margin-bottom: 12px; }
+.card p { color: #b4b4c5; line-height: 1.7; margin-bottom: 20px; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+.tag { background: rgba(0,200,255,0.12); color: #00c8ff; padding: 6px 12px; border-radius: 8px; font-size: 12px; }
+.card-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.card-btn { display: inline-block; padding: 11px 18px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; cursor: pointer; }
+.demo-btn { background: #00c8ff; color: black; }
+.demo-btn:hover { background: white; transform: translateY(-3px); }
+.github-btn { border: 1px solid #00c8ff; color: #00c8ff; }
+.github-btn:hover { background: #00c8ff; color: black; transform: translateY(-3px); }
+.contact { display: flex; gap: 20px; flex-wrap: wrap; }
+.contact a { text-decoration: none; color: #b4b4c5; border: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; border-radius: 10px; transition: 0.3s; }
+.contact a:hover { border-color: #00c8ff; color: white; transform: translateY(-4px); }
+footer { margin-top: 70px; text-align: center; color: #666; font-size: 14px; }
+@media(max-width: 768px) { .info h1 { font-size: 38px; } .info .profile-name { font-size: 18px; } }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Outfit', sans-serif;
-    background: #0b0b12;
-    color: white;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 50px 0;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 80px;
-}
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.profile img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #00c8ff;
-}
-
-.info .profile-name {
-    display: block;
-    font-size: 22px;
-    font-weight: 400;
-    color: #b4b4c5;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.info h1 {
-    font-size: 55px;
-    line-height: 1.1;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.info h1 span {
-    color: #00c8ff;
-}
-
-.info p {
-    color: #b4b4c5;
-    max-width: 550px;
-    line-height: 1.7;
-}
-
-.buttons {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: #00c8ff;
-    color: black;
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    background: white;
-}
-
-.btn-outline {
-    border: 1px solid #00c8ff;
-    color: #00c8ff;
-}
-
-.btn-outline:hover {
-    background: #00c8ff;
-    color: black;
-    transform: translateY(-4px);
-}
-
-.section-title {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #00c8ff;
-    margin-bottom: 25px;
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 15px;
-    margin-bottom: 80px;
-}
-
-.tech {
-    background: #12121b;
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 25px;
-    border-radius: 14px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.tech:hover {
-    transform: translateY(-6px);
-    border-color: #00c8ff;
-}
-
-.tech h3 {
-    margin-top: 10px;
-    font-size: 15px;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    margin-bottom: 80px;
-}
-
-.card {
-    background: #12121b;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 18px;
-    padding: 28px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #00c8ff;
-}
-
-.card h2 {
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #b4b4c5;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.tag {
-    background: rgba(0,200,255,0.12);
-    color: #00c8ff;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-}
-
-.card-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.card-btn {
-    display: inline-block;
-    padding: 11px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.demo-btn {
-    background: #00c8ff;
-    color: black;
-}
-
-.demo-btn:hover {
-    background: white;
-    transform: translateY(-3px);
-}
-
-.github-btn {
-    border: 1px solid #00c8ff;
-    color: #00c8ff;
-}
-
-.github-btn:hover {
-    background: #00c8ff;
-    color: black;
-    transform: translateY(-3px);
-}
-
-.contact {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.contact a {
-    text-decoration: none;
-    color: #b4b4c5;
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 14px 20px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.contact a:hover {
-    border-color: #00c8ff;
-    color: white;
-    transform: translateY(-4px);
-}
-
-footer {
-    margin-top: 70px;
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-}
-
-@media(max-width: 768px) {
-    .info h1 {
-        font-size: 38px;
-    }
-    
-    .info .profile-name {
-        font-size: 18px;
-    }
-}
-
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.active { display: flex; }
+.modal-box { background: #12121b; border: 1px solid rgba(0,200,255,0.3); border-radius: 18px; width: 100%; max-width: 820px; max-height: 90vh; overflow-y: auto; padding: 28px; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #b4b4c5; font-size: 22px; cursor: pointer; line-height: 1; transition: 0.2s; }
+.modal-close:hover { color: #00c8ff; }
+.modal-title { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+.modal-subtitle { font-size: 13px; color: #b4b4c5; margin-bottom: 20px; }
+.modal-imgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.modal-imgs img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; cursor: zoom-in; }
+.modal-imgs img:hover { border-color: #00c8ff; transform: scale(1.02); }
+.preview-btn { background: rgba(0,200,255,0.12); border: 1px solid #00c8ff; color: #00c8ff; }
+.preview-btn:hover { background: #00c8ff; color: black; transform: translateY(-3px); }
 </style>
 </head>
 <body>
@@ -280,183 +66,125 @@ footer {
 <div class="container">
 
 <header>
-
-<div class="profile">
-
-<img src="foto.jpg" alt="Justin">
-
-<div class="info">
-
-<span class="profile-name">Justin Minuche</span>
-<h1>Ingeniero de <span>Software</span></h1>
-
-<p>
-Estudiante apasionado por el desarrollo web, Python y la creación de aplicaciones modernas.
-</p>
-
-<div class="buttons">
-
-<a href="https://github.com/Justinminuche" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-GitHub
-</a>
-
-<a href="https://www.linkedin.com/in/justin-ricardo-minuche-gavilanes-b6a663410?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-LinkedIn
-</a>
-
-<a href="mailto:jminucheg@unemi.edu.ec" class="btn btn-outline">
-Contacto
-</a>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="profile">
+    <img src="foto.jpg" alt="Justin">
+    <div class="info">
+      <span class="profile-name">Justin Minuche</span>
+      <h1>Ingeniero de <span>Software</span></h1>
+      <p>Estudiante apasionado por el desarrollo web, Python y la creación de aplicaciones modernas.</p>
+      <div class="buttons">
+        <a href="https://github.com/Justinminuche" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub</a>
+        <a href="https://www.linkedin.com/in/justin-ricardo-minuche-gavilanes-b6a663410?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+        <a href="mailto:jminucheg@unemi.edu.ec" class="btn btn-outline">Contacto</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <h2 class="section-title">Tecnologías</h2>
-
 <div class="tech-grid">
-
-<div class="tech">
-<h3>🐍 Python</h3>
-</div>
-
-<div class="tech">
-<h3>🎸 Django</h3>
-</div>
-
-<div class="tech">
-<h3>🌐 HTML</h3>
-</div>
-
-<div class="tech">
-<h3>🎨 CSS</h3>
-</div>
-
-<div class="tech">
-<h3>⚡ JavaScript</h3>
-</div>
-
-<div class="tech">
-<h3>🐙 GitHub</h3>
-</div>
-
+  <div class="tech"><h3>🐍 Python</h3></div>
+  <div class="tech"><h3>🎸 Django</h3></div>
+  <div class="tech"><h3>🌐 HTML</h3></div>
+  <div class="tech"><h3>🎨 CSS</h3></div>
+  <div class="tech"><h3>⚡ JavaScript</h3></div>
+  <div class="tech"><h3>🐙 GitHub</h3></div>
 </div>
 
 <h2 class="section-title">Proyectos</h2>
-
 <div class="projects">
 
-<div class="card">
-<h2>🎮 Memory Game</h2>
-<p>
-Juego de memoria multijugador desarrollado con JavaScript y Firebase.
-Encuentra todos los pares antes que tu oponente.
-</p>
-<div class="tags">
-<span class="tag">JavaScript</span>
-<span class="tag">Firebase</span>
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-</div>
-<div class="card-buttons">
-<a href="https://game-memory-20my22.web.app/" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">
-▶️ Probar
-</a>
-<a href="https://github.com/Justinminuche/Memory-Game.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
-🐙 GitHub
-</a>
-</div>
-</div>
+  <div class="card">
+    <h2>🎮 Memory Game</h2>
+    <p>Juego de memoria multijugador desarrollado con JavaScript y Firebase. Encuentra todos los pares antes que tu oponente.</p>
+    <div class="tags">
+      <span class="tag">JavaScript</span><span class="tag">Firebase</span><span class="tag">HTML</span><span class="tag">CSS</span>
+    </div>
+    <div class="card-buttons">
+      <a href="https://game-memory-20my22.web.app/" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">▶️ Probar</a>
+      <a href="https://github.com/Justinminuche/Memory-Game.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">🐙 GitHub</a>
+    </div>
+  </div>
 
-<div class="card">
-<h2>🛒 Sistema de Compra y Venta</h2>
-<p>
-Sistema local desarrollado con Django para administrar productos,
-clientes, compras, ventas e inventario.
-</p>
-<div class="tags">
-<span class="tag">Python</span>
-<span class="tag">Django</span>
-<span class="tag">SQLite</span>
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-</div>
-<div class="card-buttons">
-<a href="https://github.com/Justinminuche/Sistema-de-compra-y-venta" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
-🐙 Ver Proyecto
-</a>
-</div>
-</div>
+  <div class="card">
+    <h2>🛒 Sistema de Compra y Venta</h2>
+    <p>Sistema local desarrollado con Django para administrar productos, clientes, compras, ventas e inventario.</p>
+    <div class="tags">
+      <span class="tag">Python</span><span class="tag">Django</span><span class="tag">SQLite</span><span class="tag">HTML</span><span class="tag">CSS</span>
+    </div>
+    <div class="card-buttons">
+      <button class="card-btn preview-btn" onclick="openModal()">👁️ Vista Previa</button>
+      <a href="https://github.com/Justinminuche/Sistema-de-compra-y-venta" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">🐙 Ver Proyecto</a>
+    </div>
+  </div>
 
-<div class="card">
-<h2>📝 Quiz PSeInt</h2>
-<p>
-Aplicación web interactiva de preguntas y respuestas diseñada para evaluar y reforzar conocimientos sobre lógica de programación y PSeInt.
-</p>
-<div class="tags">
-<span class="tag">JavaScript</span>
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">Firebase</span>
-</div>
-<div class="card-buttons">
-<a href="https://quiz-pseint-minuche12.web.app" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">
-▶️ Probar
-</a>
-<a href="https://github.com/Justinminuche/Actividad_01.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">
-🐙 GitHub
-</a>
-</div>
-</div>
+  <div class="card">
+    <h2>📝 Quiz PSeInt</h2>
+    <p>Aplicación web interactiva de preguntas y respuestas diseñada para evaluar y reforzar conocimientos sobre lógica de programación y PSeInt.</p>
+    <div class="tags">
+      <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Firebase</span>
+    </div>
+    <div class="card-buttons">
+      <a href="https://quiz-pseint-minuche12.web.app" target="_blank" rel="noopener noreferrer" class="card-btn demo-btn">▶️ Probar</a>
+      <a href="https://github.com/Justinminuche/Actividad_01.git" target="_blank" rel="noopener noreferrer" class="card-btn github-btn">🐙 GitHub</a>
+    </div>
+  </div>
 
-<div class="card">
-<h2>⚽ Copa Mundial 2026</h2>
-<p>
-Juego multijugador en Roblox para pronosticar los resultados de toda la Copa del Mundo desde la fase de grupos. ¡Compite en la tabla de clasificación por el mayor puntaje y gana increíbles premios, incluyendo un iPhone 14 Pro para el primer lugar!
-</p>
-<div class="tags">
-<span class="tag">Roblox Studio</span>
-<span class="tag">Luau</span>
-<span class="tag">Game Design</span>
-</div>
-<div class="card-buttons">
-<span class="card-btn" style="border: 1px solid #666; color: #b4b4c5; cursor: default; user-select: none;">
-⏳ Próximamente...
-</span>
-</div>
-</div>
+  <div class="card">
+    <h2>⚽ Copa Mundial 2026</h2>
+    <p>Juego multijugador en Roblox para pronosticar los resultados de toda la Copa del Mundo desde la fase de grupos. ¡Compite en la tabla de clasificación por el mayor puntaje y gana increíbles premios, incluyendo un iPhone 14 Pro para el primer lugar!</p>
+    <div class="tags">
+      <span class="tag">Roblox Studio</span><span class="tag">Luau</span><span class="tag">Game Design</span>
+    </div>
+    <div class="card-buttons">
+      <span class="card-btn" style="border: 1px solid #666; color: #b4b4c5; cursor: default; user-select: none;">⏳ Próximamente...</span>
+    </div>
+  </div>
 
 </div>
 
 <h2 class="section-title">Contacto</h2>
-
 <div class="contact">
+  <a href="mailto:jminucheg@unemi.edu.ec">✉ jminucheg@unemi.edu.ec</a>
+  <a href="https://github.com/Justinminuche" target="_blank" rel="noopener noreferrer">🐙 github.com/Justinminuche</a>
+  <a href="https://www.linkedin.com/in/justin-ricardo-minuche-gavilanes-b6a663410?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+</div>
 
-<a href="mailto:jminucheg@unemi.edu.ec">
-✉ jminucheg@unemi.edu.ec
-</a>
-
-<a href="https://github.com/Justinminuche" target="_blank" rel="noopener noreferrer">
-🐙 github.com/Justinminuche
-</a>
-
-<a href="https://www.linkedin.com/in/justin-ricardo-minuche-gavilanes-b6a663410?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">
-💼 LinkedIn
-</a>
+<footer>Justin © 2026 | Portafolio Profesional</footer>
 
 </div>
 
-<footer>
-
-Justin © 2026 | Portafolio Profesional
-
-</footer>
-
+<!-- Modal Vista Previa -->
+<div class="modal-overlay" id="previewModal" onclick="closeOnOverlay(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <p class="modal-title">🛒 Sistema de Compra y Venta</p>
+    <p class="modal-subtitle">Capturas del sistema en funcionamiento</p>
+    <div class="modal-imgs">
+      <img src="listadodemarcas.png" alt="Listado de marcas">
+      <img src="listadodeproductos.png" alt="Listado de productos">
+      <img src="listadodeventas.png" alt="Listado de ventas">
+      <img src="detallefactura.png" alt="Detalle de factura">
+      <img src="registrarcompra.png" alt="Registrar compra">
+      <img src="Factura.png" alt="Factura">
+    </div>
+  </div>
 </div>
+
+<script>
+function openModal() {
+  document.getElementById('previewModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('previewModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e) {
+  if (e.target === document.getElementById('previewModal')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 
 </body>
 </html>
