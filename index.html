@@ -149,10 +149,8 @@ a { color: inherit; }
 .link { justify-self: center; width: 2px; height: 14px; background: rgba(255, 255, 255, .4); }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-/* Ventana de navegador */
-.browser { position: absolute; top: 56px; left: 32px; width: 640px; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -24px rgba(18, 24, 51, .5); }
-.browser-bar { display: flex; gap: 6px; padding: 10px 12px; background: #DDE2EC; }
-.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #B4BBCB; }
+/* Proyecto sin imagen al lado */
+.project-solo > div { grid-column: 2 / -1; }
 
 /* Herramientas */
 .skills { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 0 32px; padding: 96px 0; border-top: 1px solid var(--line); }
@@ -222,6 +220,7 @@ dialog::backdrop { background: rgba(10, 14, 32, .72); }
 @media (max-width: 1060px) {
   .project { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); }
   .project-when { grid-column: 1 / -1; padding-top: 0; }
+  .project-solo > div { grid-column: 1 / -1; }
   .section-head, .skills, .contact-inner { grid-template-columns: minmax(0, 1fr); }
   .section-head h2, .section-head p, .skills h2, .skills dl, .contact-body { grid-column: 1; }
 }
@@ -242,7 +241,6 @@ dialog::backdrop { background: rgba(10, 14, 32, .72); }
   .fan .phone img { border-radius: 21px; }
   .visual { height: 360px; }
   .visual .phone { width: 210px; }
-  .browser { left: 20px; width: 560px; }
   .dlg-head, .dlg-body { padding-left: 20px; padding-right: 20px; }
 }
 </style>
@@ -404,7 +402,7 @@ dialog::backdrop { background: rgba(10, 14, 32, .72); }
     </figure>
   </article>
 
-  <article class="project" style="--accent: #1066F7; --tint: #DCE4FA;">
+  <article class="project project-solo" style="--accent: #1066F7;">
     <p class="project-when"><time datetime="2026-05">Mayo 2026</time></p>
     <div>
       <h3>Sistema de compra y venta</h3>
@@ -420,12 +418,6 @@ dialog::backdrop { background: rgba(10, 14, 32, .72); }
         <a class="btn btn-line" href="https://github.com/Justinminuche/Sistema-de-compra-y-venta" target="_blank" rel="noopener noreferrer">Ver código</a>
       </div>
     </div>
-    <figure class="visual">
-      <div class="browser">
-        <div class="browser-bar"><i></i><i></i><i></i></div>
-        <img src="img/sistema/listadodeproductos.webp" alt="Listado de productos del sistema de compra y venta" width="1359" height="628" loading="lazy">
-      </div>
-    </figure>
   </article>
 
   <section class="skills" aria-labelledby="herramientas">
